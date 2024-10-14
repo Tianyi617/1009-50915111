@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Flip Effect</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="countdown">倒數</div>
+    <div class="controls">
+        <button id="start-game">開始遊戲</button>
+        <button id="show-front">顯示正面</button>
+        <button id="show-back">顯示背面</button>
+        <label for="theme-select">切換主題:</label>
+        <select id="theme-select">
+            <option value="theme1">主題 1</option>
+            <option value="theme2">主題 2</option>
+        </select>
+        <select id="layout-select">
+            <option value="2x2">2x2</option>
+            <option value="2x4">2x4</option>
+            <option value="4x4">4x4</option>
+            <option value="6x6">6x6</option> <!-- 新增這行 -->
+        </select>
+        
+        <label for="countdown-select">翻回背面倒數:</label>
+        <select id="countdown-select">
+            <option value="3">3秒</option>
+            <option value="5" selected>5秒</option>
+            <option value="10">10秒</option>
+        </select>
+
+    </div>
+    <div class="cards-container"></div>
+    <div id="timer">計時: 0 秒</div>
+
+    <audio id="success-sound" src="success.mp3"></audio>
+    <audio id="failure-sound" src="failure.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

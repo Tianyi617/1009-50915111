@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* 垂直排列容器 */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #e0e7ff; /* 淺藍色背景 */
+    font-family: 'Arial', sans-serif; /* 設定字型 */
+}
+#countdown {
+    font-size: 24px;
+    color: red;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.cards-container {
+    display: grid;
+    gap: 30px; /* 增加卡片之間的間距 */
+    max-width: 600px; /* 限制容器最大寬度 */
+    margin: 0 auto; /* 保證容器在頁面中置中 */
+    perspective: 1000px; /* 增加3D效果 */
+}
+
+.cards-container[data-layout="2x2"] {
+    grid-template-columns: repeat(2, 1fr); /* 2列 */
+}
+
+.cards-container[data-layout="2x4"] {
+    grid-template-columns: repeat(4, 1fr); /* 4列 */
+}
+
+.cards-container[data-layout="4x4"] {
+    grid-template-columns: repeat(4, 1fr); /* 4列 */
+}
+.cards-container[data-layout="6x6"] {
+    grid-template-columns: repeat(6, 1fr); /* 6列 */
+}
+/* 美化 select 下拉選單 */
+select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #2980b9;
+    background-color: #2980b9; /* 背景顏色 */
+    color: white; /* 文字顏色 */
+    font-size: 16px; /* 字體大小 */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* 添加過渡效果 */
+}
+
+/* 當用戶點擊或聚焦到 select 時的樣式 */
+select:focus {
+    outline: none; /* 移除默認的邊框 */
+    background-color: #1a4d8b; /* 聚焦時改變背景顏色 */
+}
+
+/* 美化選項項目 */
+option {
+    background-color: white; /* 選項的背景顏色 */
+    color: #2980b9; /* 選項文字顏色 */
+}
+
+/* 滑鼠懸停在下拉框時的效果 */
+select:hover {
+    background-color: #1a4d8b; /* 滑鼠懸停時改變背景顏色 */
+    color: white;
+}
+
+h1 {
+    margin-bottom: 20px; /* 標題與其他內容的間距 */
+    color: #2c3e50; /* 深色標題 */
+}
+
+
+
+.card {
+    width: 70px;
+    height: 70px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    background-color: #ffffff; /* 卡片的背景顏色 */
+    border: 1px solid #ddd; /* 邊框 */
+    border-radius: 8px; /* 圓角 */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* 陰影效果 */
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 8px; /* 讓前後面都有圓角 */
+}
+
+.card-front {
+    z-index: 2;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    background-color: #3498db; /* 背面顏色 */
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+/* 縮小圖片的樣式 */
+.card-front img,
+.card-back img {
+    width: 100%; /* 設置圖片的寬度為100% */
+    height: auto; /* 高度自動調整，保持比例 */
+    border-radius: 8px; /* 與卡片的圓角一致 */
+}
+
+/* 按鈕樣式 */
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2980b9; /* 按鈕顏色 */
+    color: white; /* 按鈕文字顏色 */
+    font-size: 16px; /* 按鈕文字大小 */
+    cursor: pointer; /* 滑鼠指標變成手型 */
+    transition: background-color 0.3s; /* 滑鼠懸停效果 */
+}
+
+button:hover {
+    background-color: #1a4d8b; /* 滑鼠懸停時的顏色變化 */
+}
+
+.timer {
+    margin-top: 20px; /* 計時器與其他元素的間距 */
+    font-size: 20px; /* 計時器字型大小 */
+    color: #34495e; /* 計時器顏色 */
+}
